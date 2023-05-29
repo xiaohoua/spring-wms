@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring.mapper.GoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.spring.entity.Goods">
+        <id column="id" property="id" />
+        <result column="no" property="no" />
+        <result column="name" property="name" />
+        <result column="commodityCategory" property="commodity_category" />
+        <result column="stock" property="stock" />
+        <result column="storage" property="storage" />
+        <result column="salesUnitPrice" property="sales_unit_price" />
+        <result column="dateOfManufacture" property="date_of_manufacture" />
+        <result column="qualityGuaranteePeriod" property="quality_guarantee_period" />
+        <result column="isValid" property="isvalid" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, no, name, commodityCategory, stock, salesUnitPrice, dateOfManufacture, qualityGuaranteePeriod, isValid
+    </sql>
+
+    <select id="pageC" resultType="com.example.spring.entity.Goods">
+        select * from goods
+    </select>
+
+    <select id="pageCC" resultType="com.example.spring.entity.Goods">
+        select * from goods ${ew.customSqlSegment}
+    </select>
+
+</mapper>
